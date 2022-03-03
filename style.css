@@ -49,7 +49,11 @@ body {
     width: 60px;
 }
 
-.draggable-list li.over .draggable {
+.draggable-list li.obscured div {
+    background-color: #eaeaea;
+}
+
+.draggable-list li.obscured {
     background-color: #eaeaea;
 }
 
@@ -57,11 +61,11 @@ body {
     margin: 0 20px 0 0;
 }
 
-.draggable-list li.right .item-name {
+.draggable-list li.correct .item-name {
     color: var(--correct-color);
 }
 
-.draggable-list li.wrong .item-name {
+.draggable-list li.incorrect .item-name {
     color: var(--wrong-color);
 }
 
