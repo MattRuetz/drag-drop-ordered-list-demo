@@ -18,13 +18,18 @@ let listItems = [];
 
 let dragStartIndex = 0;
 
+// Create list for user - randomize order of values array and display in DOM
 const createList = () => {
-    [...values].forEach((item, index) => {
-        const listItem = document.createElement('li');
+    [...values]
+        .map((a) => ({ value: a, sort: Math.random() }))
+        .sort((a, b) => a.sort - b.sort)
+        .map((a) => a.value)
+        .forEach((item, index) => {
+            const listItem = document.createElement('li');
 
-        listItem.setAttribute('data-index', index);
+            listItem.setAttribute('data-index', index);
 
-        listItem.innerHTML = `
+            listItem.innerHTML = `
             <span class="number">${index + 1}</span>
             <div class="draggable" draggable="true">
                 <p class="item-name">${item}</p>
@@ -32,9 +37,9 @@ const createList = () => {
             </div>
         `;
 
-        listItems.push(listItem);
-        draggableList.appendChild(listItem);
-    });
+            listItems.push(listItem);
+            draggableList.appendChild(listItem);
+        });
 };
 
 createList();
