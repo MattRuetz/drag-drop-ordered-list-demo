@@ -1,9 +1,10 @@
 :root {
-    --border-color: #e3e5e4;
-    --background-color: #c3c7ca;
-    --text-color: #34444f;
+    --background-color: #d3eca7;
+    --border-color: #a1b57d;
+    --text-color: #19282f;
+    --accent-color: #b33030;
     --correct-color: #3ae374;
-    --wrong-color: #ff3838;
+    --incorrect-color: #ff3838;
 }
 
 * {
@@ -29,9 +30,11 @@ body {
 }
 
 .draggable-list li {
+    position: sticky;
     background-color: white;
     display: flex;
     flex: 1;
+    z-index: 10;
 }
 
 /* For all li except the last one... */
@@ -40,7 +43,8 @@ body {
 }
 
 .draggable-list .number {
-    background-color: var(--background-color);
+    background-color: var(--text-color);
+    color: white;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -53,10 +57,6 @@ body {
     background-color: #eaeaea;
 }
 
-.draggable-list li.obscured {
-    background-color: #eaeaea;
-}
-
 .draggable-list .item-name {
     margin: 0 20px 0 0;
 }
@@ -66,7 +66,7 @@ body {
 }
 
 .draggable-list li.incorrect .item-name {
-    color: var(--wrong-color);
+    color: var(--incorrect-color);
 }
 
 .draggable {
@@ -79,9 +79,9 @@ body {
 }
 
 .check-btn {
-    background-color: var(--background-color);
+    background-color: var(--accent-color);
     border: none;
-    color: var(--text-color);
+    color: white;
     font-size: 16px;
     padding: 10px 20px;
     cursor: pointer;
